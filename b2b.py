@@ -1,11 +1,6 @@
-"""
-Project: B2B (set attributes)
-Port - attribute location (slot...Hosts)
-StreamBlock - 1 bidirectional
-"""
-num_of_sessions = 'const'
-
 from StcPython import StcPython
+
+num_of_sessions = 'will be an arg'
 
 stc = StcPython()
 
@@ -119,7 +114,9 @@ stc.perform('GeneratorStop', generatorList=[generator_1, generator_2])
 stc.perform('AnalyzerStop', analyzerList=[analyzer_1, analyzer_2])
 
 #  Call unsubscribes
+stc.unsubscribe(port1AnalyzerResult)
 stc.unsubscribe(port2AnalyzerResult)
+stc.unsubscribe(port2GeneratorResult)
 stc.unsubscribe(port1GeneratorResult)
 
 #  Disconnect
